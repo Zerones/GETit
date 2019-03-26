@@ -5,3 +5,10 @@ C:\Users\Brage\source\repos\PassordApp\PassordApp\obj\Debug\PassordApp.csprojAss
 C:\Users\Brage\source\repos\PassordApp\PassordApp\obj\Debug\PassordApp.csproj.CoreCompileInputs.cache
 C:\Users\Brage\source\repos\PassordApp\PassordApp\obj\Debug\PassordApp.exe
 C:\Users\Brage\source\repos\PassordApp\PassordApp\obj\Debug\PassordApp.pdb
+C:\Users\Brage\source\repos\GETit\PassordApp\PassordApp\bin\Debug\PassordApp.exe.config
+C:\Users\Brage\source\repos\GETit\PassordApp\PassordApp\bin\Debug\PassordApp.exe
+C:\Users\Brage\source\repos\GETit\PassordApp\PassordApp\bin\Debug\PassordApp.pdb
+C:\Users\Brage\source\repos\GETit\PassordApp\PassordApp\obj\Debug\PassordApp.csprojAssemblyReference.cache
+C:\Users\Brage\source\repos\GETit\PassordApp\PassordApp\obj\Debug\PassordApp.csproj.CoreCompileInputs.cache
+C:\Users\Brage\source\repos\GETit\PassordApp\PassordApp\obj\Debug\PassordApp.exe
+C:\Users\Brage\source\repos\GETit\PassordApp\PassordApp\obj\Debug\PassordApp.pdb

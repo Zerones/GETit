@@ -10,7 +10,7 @@ namespace PassordApp
     {
         private static void Main(string[] args)
         {
-            if(!IsValid(args) == true)
+            if(!IsValid(args))
             {
                 LoginFail();
             } else
@@ -28,29 +28,29 @@ namespace PassordApp
                 {
                     foreach (var character in nummer)
                     {
-                        if (char.IsDigit(character) == true) continue;
+                        if (char.IsDigit(character)) continue;
                         else return false;
                     }
                     for (var i = 0; i < text.Length; i++)
                     {
                         if (i == 1)
                         {
-                            if (char.IsUpper(text[i]) == true) continue;
+                            if (char.IsUpper(text[i])) continue;
                             else return false;
                         }
                         else if (i == 2 || i == 3)
                         {
-                            if (char.IsSymbol(text[i]) == true) continue;
+                            if (char.IsSymbol(text[i])) continue;
                             else return false;
                         }
                         else if (i == 4 || i == 5)
                         {
-                            if (char.IsDigit(text[i]) == true) continue;
+                            if (char.IsDigit(text[i])) continue;
                             else return false;
                         }
                         else
                         {
-                            if (char.IsLower(text[i]) == true) continue;
+                            if (char.IsLower(text[i])) continue;
                             else return false;
                         }
                     }
