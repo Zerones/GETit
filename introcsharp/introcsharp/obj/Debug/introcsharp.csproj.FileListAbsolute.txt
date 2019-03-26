@@ -1,0 +1,9 @@
+C:\Users\Brage\source\repos\introcsharp\introcsharp\bin\Debug\introcsharp.exe.config
+C:\Users\Brage\source\repos\introcsharp\introcsharp\bin\Debug\introcsharp.exe
+C:\Users\Brage\source\repos\introcsharp\introcsharp\bin\Debug\introcsharp.pdb
+C:\Users\Brage\source\repos\introcsharp\introcsharp\obj\Debug\introcsharp.csprojAssemblyReference.cache
+C:\Users\Brage\source\repos\introcsharp\introcsharp\obj\Debug\introcsharp.csproj.CoreCompileInputs.cache
+C:\Users\Brage\source\repos\introcsharp\introcsharp\obj\Debug\introcsharp.exe
+C:\Users\Brage\source\repos\introcsharp\introcsharp\obj\Debug\introcsharp.pdb
+C:\Users\Brage\source\repos\introcsharp\introcsharp\bin\Debug\introcsharp.exe.CodeAnalysisLog.xml
+C:\Users\Brage\source\repos\introcsharp\introcsharp\bin\Debug\introcsharp.exe.lastcodeanalysissucceeded
