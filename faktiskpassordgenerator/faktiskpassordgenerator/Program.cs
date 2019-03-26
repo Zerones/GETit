@@ -28,14 +28,14 @@ namespace faktiskpassordgenerator
 
         private static string WriteRandomLowerCaseLetter()
         {
-            char character = GetRandomLetter('1', '9');
+            char character = GetRandomLetter('a', 'z');
             string bokstav = Char.ToString(character);
             bokstav.ToLower();
             return bokstav;
         }
         private static string WriteRandomUpperCaseLetter()
         {
-            char character = GetRandomLetter('a', 'å');
+            char character = GetRandomLetter('A', 'Z');
             string bokstav = Char.ToString(character);
             bokstav.ToUpper();
             return bokstav;
@@ -71,26 +71,27 @@ namespace faktiskpassordgenerator
             char pad = 'l';
             string resultat = "";
             string pattern = passord.PadRight(tall, pad);
+
             while(pattern.Length > 1)
             {
-                int lengde = pattern.Length;
-                if (pattern[lengde] == 'l')
+                int index = pattern.Length - 1;
+                if (pattern[index] == 'l')
                 {
                     resultat += WriteRandomLowerCaseLetter();
                 }
-                else if (pattern[lengde] == 'L')
+                else if (pattern[index] == 'L')
                 {
                     resultat += WriteRandomUpperCaseLetter();
                 }
-                else if (pattern[lengde] == 'd')
+                else if (pattern[index] == 'd')
                 {
                     resultat += WriteRandomDigit();
                 }
-                else if (pattern[lengde] == 's')
+                else if (pattern[index] == 's')
                 {
                     resultat += WriteRandomSpecialCharacter();
                 }
-                pattern.Remove(lengde - 1);
+                pattern = pattern.Remove(index);
             }
             return resultat;
         }
