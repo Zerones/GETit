@@ -48,20 +48,9 @@ namespace Generator
         }
         private static string WriteRandomSpecialCharacter()
         {
-            int tilfeldigtall = Random.Next(1, 13);
-            if (tilfeldigtall == 1) return "!";
-            else if (tilfeldigtall == 2) return "#";
-            else if (tilfeldigtall == 3) return "¤";
-            else if (tilfeldigtall == 4) return "%";
-            else if (tilfeldigtall == 5) return "&";
-            else if (tilfeldigtall == 6) return "/";
-            else if (tilfeldigtall == 7) return "(";
-            else if (tilfeldigtall == 8) return ")";
-            else if (tilfeldigtall == 9) return "{";
-            else if (tilfeldigtall == 10) return "}";
-            else if (tilfeldigtall == 11) return "[";
-            else if (tilfeldigtall == 12) return "]";
-            else return "";
+            string [] filler = new[] { "!", "#", "¤", "%", "&", "/", "(", ")", "{", "}", "[", "]" };
+            int tilfeldigtall = Random.Next(0, 12);
+            return filler[tilfeldigtall];
         }
 
         private static string Miksing(string[] args)
@@ -97,22 +86,18 @@ namespace Generator
         }
         private static bool IsValid(string[] args)
         {
-            if(args.Length == 2)
+            if (args.Length == 2)
             {
                 string tall = args[0];
                 string passord = args[1];
-                if (tall.Length == 2)
+                foreach (var character in tall)
                 {
-                    foreach (var character in tall)
+                    if (char.IsDigit(character))
                     {
-                        if (char.IsDigit(character))
-                        {
-                            continue;
-                        }
-                        else return false;
+                        continue;
                     }
+                    else return false;
                 }
-                else return false;
                 for(var i = 0; i < passord.Length; i++)
                 {
                     if (passord[i] == 'L' || passord[i] == 'l' || passord[i] == 'd' || passord[i] == 's')
