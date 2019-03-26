@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CCB87D11-4205-4F40-978C-9A014EC5C918}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>faktiskpassordgenerator</RootNamespace>
-    <AssemblyName>faktiskpassordgenerator</AssemblyName>
+    <RootNamespace>Generator</RootNamespace>
+    <AssemblyName>Generator</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
