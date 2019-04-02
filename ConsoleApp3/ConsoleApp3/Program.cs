@@ -32,7 +32,7 @@ namespace ConsoleApp3
             {
                 var linje = line.Split('\t');
                 var ord = linje[1];
-                if (ord != lastword && ord.Length > 5 && ord.Length < 11 && !ord.Contains("-"))
+                if (ord != lastword && ord.Length > 5 && ord.Length < 11 && !ord.Contains("-") && !ord.Contains(" "))
                 {
                     ordliste.Add(ord);
                     lastword = ord;
@@ -59,6 +59,7 @@ namespace ConsoleApp3
                     if (counter == rng)
                     {
                         tilfeldigord = line.ToString();
+                        break;
                     }
                     counter++;
                 }
@@ -73,6 +74,7 @@ namespace ConsoleApp3
                         ord1 = tilfeldigord;
                         ord2 = rim;
                         prøvpånytt = false;
+                        break;
 
                     }
                 }
