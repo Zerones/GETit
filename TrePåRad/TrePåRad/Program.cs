@@ -6,8 +6,7 @@ namespace TrePåRad
     {
         static void Main(string[] args)
         {
-            string line = Boks.test();
-            Console.WriteLine(line);
+                Boks.Show();
         }
     }
 }

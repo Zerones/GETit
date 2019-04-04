@@ -4,21 +4,43 @@ namespace TrePåRad
 {
     class Boks
     {
-        public static string test()
+        public static void Show()
         {
-            string[] verdi = innhold();
+            bool lo = false;
+            while(lo == false)
+            {
+                Console.WriteLine(BoksForm());
+            }
+        }
+
+        public static string BoksForm()
+        {
+            string[] verdi = BoardModel();
             string boks =
-              "_____________" + Environment.NewLine +
-              "| " + verdi[0] + " | " + verdi[1] + " | " + verdi[2] + " |" + Environment.NewLine +
-              "| " + verdi[3] + " | " + verdi[4] + " | " + verdi[5] + " |" + Environment.NewLine +
-              "| " + verdi[6] + " | " + verdi[7] + " | " + verdi[8] + " |" + Environment.NewLine +
-              "-------------";
+                  "_____________" + Environment.NewLine +
+                  "| " + verdi[0] + " | " + verdi[1] + " | " + verdi[2] + " |" + Environment.NewLine +
+                  "| " + verdi[3] + " | " + verdi[4] + " | " + verdi[5] + " |" + Environment.NewLine +
+                  "| " + verdi[6] + " | " + verdi[7] + " | " + verdi[8] + " |" + Environment.NewLine +
+                  "-------------";
             return boks;
         }
 
-        private static string[] innhold()
+        public static string[] BoardModel()
         {
-            return new string[] {"X", "X", "X", "X", "X", "X", "X", "X", "X"};
+            string[] model = new string[] {"","","","","","","","",""};
+            int inputt = Input.SpillerTrekk();
+            for(int i = 0; i < 9; i++)
+            {
+                if(i == inputt)
+                {
+                    model[i] = "X";
+                }
+                else
+                {
+                    model[i] = " ";
+                }
+            }
+            return model; 
         }
     }
 }
