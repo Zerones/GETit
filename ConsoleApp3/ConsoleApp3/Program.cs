@@ -17,7 +17,6 @@ namespace ConsoleApp3
             {
                 string rimmer = Rim(arraylengde, ordliste);
                 Console.WriteLine(rimmer);
-                Console.ReadKey();
             }
         }
 
