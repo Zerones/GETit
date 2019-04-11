@@ -17,7 +17,7 @@ namespace firekant
         {
             if (Up && !Down && !Left && Right) return '┌';
             if (!Up && !Down && Left && Right) return '─';
-            if (!Up && Down && Left && !Right) return '┐';
+            if (Up && !Down && Left && !Right) return '┐';
             if (Up && !Down && !Left && Right) return '└';
             if (Up && !Down && Left && !Right) return '┘';
             if (Up && Down && !Left && !Right) return '│';
@@ -29,16 +29,12 @@ namespace firekant
             return ' ';
         }
 
-
-
-
-
         public void AddHorizontal() => Left = Right = true;
         public void AddVertical() => Up = Down = true;
-        public void AddLowerLeftCorner() => Down = Left = true;
-        public void AddUpperLeftCorner() => Up = Left = true;
-        public void AddUpperRightCorner() => Up = Right = true;
-        public void AddLowerRightCorner() => Down = Right = true;
+        public void AddLowerLeftCorner() => Down = Right = true;
+        public void AddUpperLeftCorner() => Up = Right = true;
+        public void AddUpperRightCorner() => Up = Left = true;
+        public void AddLowerRightCorner() => Down = Left = true;
 
     }
 }
