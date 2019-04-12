@@ -9,36 +9,39 @@ namespace firekant
         public VirtualScreenRow(int width)
         {
             _cells = new VirtualScreenCell[width];
-            for (var i = 0; i < _cells.Length; i++)
+            for (var i = 0; i < width; i++)
             {
                 _cells[i] = new VirtualScreenCell();
-                if (i == 0 || i == width - 1) AddBoxTopRow(i, width);
-                else
-                {
-                    _cells[i].AddHorizontal();
-                }
             }
         }
-        public void AddBoxTopRow(int boxX, int boxWidth)
+        public void AddBoxTopRow(int i, int width)
         {
-            if(boxX == 0)
-            {
-                _cells[boxX].AddUpperLeftCorner();
-            }
-            if(boxX == boxWidth - 1)
-            {
-                _cells[boxWidth - 1].AddUpperRightCorner();
-            }
+            var cell = _cells[i];
+            if(i == 0) cell.AddUpperLeftCorner();
+            else if (i == width - 1) cell.AddUpperRightCorner();
+            else cell.AddHorizontal();
         }
+        public void AddBoxBottomRow(int i, int width)
+        {
+            var cell = _cells[i];
+            if (i == 0) cell.AddLowerLeftCorner();
+            else if (i == width - 1) cell.AddLowerRightCorner();
+            else cell.AddHorizontal();
+        }
+        public void AddBoxMiddleRow(int i, int width)
+        {
+            var cell = _cells[i];
+            if (i == 0 || i == width - 1) cell.AddVertical();
+        }
+
         public void Show()
         {
-            foreach (var cell in _cells)
+            for(int i = 0; i < _cells.Length; i++)
             {
-                char e = cell.GetCharacter();
-                Console.Write(e);
+                var innhold = _cells[i].GetCharacter();
+                Console.Write(innhold);
             }
-
-
+            Console.Write(Environment.NewLine);
         }
 
     }

@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Box.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VirtualScreen.cs" />
     <Compile Include="VirtualScreenCell.cs" />
     <Compile Include="VirtualScreenRow.cs" />
   </ItemGroup>
