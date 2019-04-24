@@ -9,35 +9,25 @@ namespace firekant
 
         static void Main(string[] args)
         {
-            while (true)
+            bool lol = false; 
+            while(lol == false)
             {
-                var boxes = CreateBoxes();
-                Show(boxes);
-                Console.WriteLine("(press enter for new. ctrl+c=exit)");
-                Console.ReadLine();
-            }
-        }
+                var random = new Random();
+                var box1 = new Box(random, 40, 18);
+                var box2 = new Box(random, 40, 18);
+                var screen = new VirtualScreen(50, 20);
+                screen.Add(box1);
+                screen.Add(box2);
+                screen.Show();
+                ConsoleKeyInfo test = Console.ReadKey();
+                if (Console.ReadKey().Key == ConsoleKey.Escape)
+                {
+                    lol = true;
+                }
+                else continue;
 
-        private static Box[] CreateBoxes()
-        {
-            var random = new Random();
-            var boxes = new Box[3];
-            for (var i = 0; i < boxes.Length; i++)
-            {
-                boxes[i] = new Box(random, _width, _height);
             }
-            return boxes;
-        }
 
-        private static void Show(Box[] boxes)
-        {
-            var screen = new VirtualScreen(_width, _height);
-            foreach (var box in boxes)
-            {
-                screen.Add(box);
-            }
-            screen.Show();
         }
     }
-
 }

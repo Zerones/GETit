@@ -1,34 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace firekant
 {
-    class VirtualScreen
+    public class VirtualScreen
     {
         private VirtualScreenRow[] _rows;
 
         public VirtualScreen(int width, int height)
         {
             _rows = new VirtualScreenRow[height];
-            for(int i = 0; i < height; i++)
+            for (int i = 0; i < height; i++)
             {
-                _rows[i] = new VirtualScreenRow(width);
-                var row = _rows[i];
-                for(int k = 0; k < width; k++)
-                {
-                    if (i == 0) row.AddBoxTopRow(k, width);
-                    else if (i == height -1) row.AddBoxBottomRow(k, width);
-                    else row.AddBoxMiddleRow(k, width);
-                }
+                _rows[i] = new VirtualScreenRow(width, 1);
             }
         }
+
         public void Add(Box box)
         {
-
+            _rows[box.StartY].AddBoxTopRow(box.X, box.Width);
+            for (var i = box.StartY + 1; i < box.EndY; i++)
+            {
+                _rows[i].AddBoxMiddleRow(box.X, box.Width);
+            }
+            _rows[box.EndY].AddBoxBottomRow(box.X, box.Width);
         }
+
         public void Show()
         {
             Console.Clear();
@@ -37,7 +33,5 @@ namespace firekant
                 screenRow.Show();
             }
         }
-
     }
-
 }
