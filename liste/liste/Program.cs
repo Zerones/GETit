@@ -72,8 +72,9 @@ namespace liste
                 foreach(var member in club.Members)
                 {
                     Console.WriteLine(member.Name);
+                    Thread.Sleep(50);
                 }
-
+                Thread.Sleep(500);
             }
             Console.WriteLine("-------------------------------------------------------------");
             Console.ReadKey();
