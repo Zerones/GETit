@@ -1,26 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace liste
 {
     class Club
     {
-        public string Medlemmer { get; private set; }
-        public string KlubNavn { get; private set; }
-        public void OpprettKlubb(string bruker, string klubbnavn)
+        public List<Registrering> Members { get; }
+        public string Name { get; }
+        
+        public  Club()
         {
-            Medlemmer = bruker + Environment.NewLine;
-            KlubNavn = klubbnavn;
+             Members = new List<Registrering>();
         }
-        public void LeggTilMedlem(string medlem)
+        public  Club(string navn) : this()
         {
-            Medlemmer += medlem + Environment.NewLine; 
+            Name = navn;
+        }
+        public void addMember(Registrering registering)
+        {
+            Members.Add(registering);
         }
     }
 }
 
 
-//  Bare litt grønt her også, sånn at det ser ut som jeg så gjennom hele koden før jeg sender det til deg. 

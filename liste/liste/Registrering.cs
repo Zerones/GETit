@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace liste
 {
@@ -15,22 +11,20 @@ namespace liste
         public string Group { get; private set; }
         public string Class { get; private set; }
 
-        public void LagBruker(string line)
+        public void Regi(string[] line)
         {
-            string[] info = line.Split(',');
-            if(Int32.TryParse(info[0], out int result)) // Jeg stjal denne koden fra løsningsforslaget ditt, men gjorde den verre ved å kutte bort effektiviteten din :^)
+            if (Int32.TryParse(line[0], out int result))
             {
                 StartNumber = result;
             }
-            else
-            {
-                StartNumber = 0; 
-            }
-            Name = info[1];             // Igjen jeg burde ha brukt .Split istedenfor å lese rett av stringet som om det var et Array... 
-            Club = info[2];
-            Nationality = info[3];
-            Group = info[4];
-            Class = info[5];
+            else StartNumber = -1;
+            Name = line[1];
+            if (string.IsNullOrEmpty(line[2])) Club = "No Registered Club";
+            else Club = line[2];
+            Nationality = line[3];
+            Group = line[4];
+            Class = line[5];
+
         }
     }
 }
