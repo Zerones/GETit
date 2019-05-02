@@ -13,7 +13,7 @@ namespace liste
         {
             var registering = new List<Registrering>();
             var resourceList = new StreamReader("startlist.csv", Encoding.UTF8);
-            while(true)
+            while (true)
             {
                 var line = resourceList.ReadLine();
                 if (line == null) break;
@@ -24,33 +24,36 @@ namespace liste
             }
             var ClubList = new List<Club>();
             int count = 0;
-            foreach(var person in registering)
+            foreach (var person in registering)
             {
-                var club = new Club(person.Club);
-                if (count == 0)
+                var club = ClubList.FirstOrDefault(c => c.Name == person.Club);
+                if (club == null)
                 {
-                    club.addMember(person);
+                    club = new Club(person.Club);
                     ClubList.Add(club);
                     count++;
-                    continue;
                 }
-                for (var i = 0; i < ClubList.ToArray().Length; i++)
-                {
-                    if (ClubList[i].Name == person.Club)
-                    {
-                        ClubList[i].addMember(person);
-                        break;
-                    }
-                    else if (person.Club.ToString() == "No Registered Club")
-                    {
-                        break;
-                    } else
-                    {
-                        club.addMember(person);
-                        ClubList.Add(club);
-                        break;
-                    }
-                }
+                club.addMember(person);
+                person.ClubObj = club;
+
+                //for (var i = 0; i < ClubList.ToArray().Length; i++)
+                //{
+                //    if (ClubList[i].Name == person.Club)
+                //    {
+                //        ClubList[i].addMember(person);
+                //        break;
+                //    }
+                //    else if (person.Club.ToString() == "No Registered Club")
+                //    {
+                //        break;
+                //    }
+                //    else
+                //    {
+                //        club.addMember(person);
+                //        ClubList.Add(club);
+                //        break;
+                //    }
+                //}
             }
             string process = "Processing";
             for (var i = 0; i < 3; i++)
@@ -69,7 +72,7 @@ namespace liste
                 Console.WriteLine("-------------------------------------------------------------");
                 Console.WriteLine(club.Name + ":");
                 Console.WriteLine();
-                foreach(var member in club.Members)
+                foreach (var member in club.Members)
                 {
                     Console.WriteLine(member.Name);
                     Thread.Sleep(50);

@@ -10,6 +10,7 @@ namespace liste
         public string Nationality { get; private set; }
         public string Group { get; private set; }
         public string Class { get; private set; }
+        public Club ClubObj { get; internal set; }
 
         public void Regi(string[] line)
         {
