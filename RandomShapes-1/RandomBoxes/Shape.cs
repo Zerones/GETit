@@ -13,14 +13,14 @@ namespace RandomBoxes
         {
         }
 
-        protected Shape(Random random)
+        protected Shape(Random random) 
         {
-            DirectionX = random.Next(0, 2);
-            DirectionY = random.Next(0, 2);
         }
 
-        public void Move()
+        public void Move(Random random)
         {
+            DirectionX = random.Next(-1, 2);
+            DirectionY = random.Next(-1, 2);
             X += DirectionX;
             Y += DirectionY;
         }
