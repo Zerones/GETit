@@ -20,7 +20,7 @@ namespace RandomBoxes
                 {
                     shape.Move(random);
                 }
-                Thread.Sleep(100);
+                Thread.Sleep(600);
             }
         }
 
