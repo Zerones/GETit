@@ -6,7 +6,7 @@
         public int Lasteevne { get; set; }
         public int Egenvekt { get; set; }
 
-        public Fly(string id, int effekt, int spenn, int last, int vekt, string klasse) : base(id, effekt, klasse)
+        public Fly(string id, int effekt, int spenn, int last, int vekt, string klasse) : base(id, effekt, 0, klasse)
         {
             Vingespenn = spenn;
             Lasteevne = last;

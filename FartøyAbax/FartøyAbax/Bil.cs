@@ -4,10 +4,9 @@ namespace FartøyAbax
 {
     public class Bil : Fartøy
     {
-        public int Maksfart { get; private set; }
         public string Farge { get; private set; }
 
-        public Bil(string id, int effekt, int maksfart, string farge, string klasse) : base(id, effekt, klasse)
+        public Bil(string id, int effekt, int maksfart, string farge, string klasse) : base(id, effekt, maksfart, klasse)
         {
             Maksfart = maksfart;
             Farge = farge;

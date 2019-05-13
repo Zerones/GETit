@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FartøyAbax
 {
@@ -6,24 +7,33 @@ namespace FartøyAbax
     {
         static void Main(string[] args)
         {
-            Bildel();
-            Fly();
+            Sammenlikne();
+            Liste();
             Console.ReadKey();
         }
-        public static void Bildel()
+        public static void Sammenlikne()
         {
             var bil1 = new Bil("NF123456", 147, 200, "Grønn", "lett kjøretøy");
             var bil2 = new Bil("NF654321", 150, 195, "Blå", "lett kjøretøy");
             bil1.Sammenlikne(bil2);
-            bil1.Print();
-            bil2.Print();
             Console.WriteLine("----------------------------------------------------------------------------------------------------------------");
         }
-        public static void Fly()
+        public static void Liste()
         {
-            var fly = new Fly("LN1234", 1000, 30, 2, 10, "jetfly");
-            fly.Print();
+            var array = Garasje();
+            foreach(var item in array)
+            {
+                item.Print();
+                Console.WriteLine("----------------------------------------------------------------------------------------------------------------");
+            }
         }
-
+        public static Fartøy[] Garasje()
+        {
+            var bil1 = new Bil("NF123456", 147, 200, "Grønn", "lett kjøretøy");
+            var bil2 = new Bil("NF654321", 150, 195, "Blå", "lett kjøretøy");
+            var fly = new Fly("LN1234", 1000, 30, 2, 10, "jetfly");
+            var båt = new Båt("ABC123", 100, 30, 500);
+            return new Fartøy[] { bil1, bil2, fly, båt};
+        }
     }
 }

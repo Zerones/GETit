@@ -8,9 +8,11 @@ namespace FartøyAbax
         public string Klasse { get; set; }
         public string[] Egenskaper { set; get; }
         public string ID { get;  set; }
+        public int Maksfart { get;  set; }
 
-        public Fartøy(string id, int effekt, string klasse)
+        public Fartøy(string id, int effekt, int maksfart, string klasse)
         {
+            Maksfart = maksfart;
             ID = id;
             Effekt = effekt;
             Klasse = klasse;
