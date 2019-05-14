@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FartøyAbax
+﻿namespace FartøyAbax
 {
     class Båt : Fartøy
     {
