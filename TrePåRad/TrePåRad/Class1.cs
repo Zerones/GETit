@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 
 namespace TrePåRad
 {
@@ -6,7 +9,7 @@ namespace TrePåRad
     {
         public static void Show()
         {
-            string[] map = new string[0];
+            string[] map;
             map = NewBoard();
             string boks = BoksForm(map);
             bool turn = false;
@@ -14,7 +17,7 @@ namespace TrePåRad
             Console.Write(boks);
             Console.Write(Environment.NewLine + "Skriv inn hvor du vil sette kryss (f.eks. \"x2\"): ");
             bool spillerVant = false; 
-            while (turn == false)
+            while (true)
             {
                 tidsrom++;
                 int inputt = Input.SpillerTrekk();
@@ -50,18 +53,29 @@ namespace TrePåRad
 
         public static bool Tapper(string[] map)
         {
-            string[] bord = map;
-            if (bord[0] == "O" && bord[1] == "O" && bord[2] == "O") return true;
-            else if (bord[3] == "O" && bord[4] == "O" && bord[5] == "O") return true;
-            else if (bord[0] == "O" && bord[3] == "O" && bord[6] == "O") return true;
-            else if (bord[0] == "O" && bord[4] == "O" && bord[8] == "O") return true;
-            else if (bord[6] == "O" && bord[4] == "O" && bord[2] == "O") return true;
-            else if (bord[1] == "O" && bord[4] == "O" && bord[7] == "O") return true;
-            else if (bord[2] == "O" && bord[5] == "O" && bord[8] == "O") return true;
-            else if (bord[6] == "O" && bord[7] == "O" && bord[8] == "O") return true;
+            if (map[0] == "O" && map[1] == "O" && map[2] == "O") return true;
+            else if (map[3] == "O" && map[4] == "O" && map[5] == "O") return true;
+            else if (map[0] == "O" && map[3] == "O" && map[6] == "O") return true;
+            else if (map[0] == "O" && map[4] == "O" && map[8] == "O") return true;
+            else if (map[6] == "O" && map[4] == "O" && map[2] == "O") return true;
+            else if (map[1] == "O" && map[4] == "O" && map[7] == "O") return true;
+            else if (map[2] == "O" && map[5] == "O" && map[8] == "O") return true;
+            else if (map[6] == "O" && map[7] == "O" && map[8] == "O") return true;
             else return false;
         }
 
+        public static bool Check(string[] board)
+        {
+            var count = board.Count(symbol => symbol != " ");
+            return count < 5;
+        }
+
+        public static void Condition(string[] board)
+        {
+            foreach (var symbol in board)
+            {
+            }
+        }
 
         public static bool Vinner(string[] map)
         {

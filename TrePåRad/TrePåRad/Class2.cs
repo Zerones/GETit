@@ -10,35 +10,29 @@ namespace TrePåRad
     {
         public static int SpillerTrekk()
         {
-            string trekk = Console.ReadLine();
-            if(trekk.Length > 2)
-            {
-                return -1;
-            }
-            string nummer = trekk.Substring(1, 1);
-            bool isNumeric = int.TryParse(nummer, out int n);
-            if (trekk.Contains("X") || trekk.Contains("x") && isNumeric == true)
-            {
-                int tall = Int32.Parse(nummer) - 1;
-                if (tall > -1)
-                {
-                    return tall;
-                }
-                else return -1;
-            }
-            else return -1;
+            var trekk = Console.ReadLine();
+            if (trekk != null && trekk.Length > 2) return -1;
+            if (trekk == null) return -1;
+            var nummer = trekk.Substring(1, 1);
+            var isNumeric = int.TryParse(nummer, out var n);
+            if (!trekk.ToLower().Contains("x") || !isNumeric) return -1;
+            var tall = int.Parse(nummer) - 1;
+            if (tall > -1)
+                return tall;
+            return -1;
+
         }
         public static int PcTrekk(string[] map)
         {
             int pctall = 0;
             bool randomer = false;
-            while (randomer == false)
+            while (true)
             {
                 Random random = new Random();
                 pctall = random.Next(0, 9);
                 if (map[pctall] == " ")
                 {
-                    randomer = true;
+                    break;
                 }
             }
             return pctall;
