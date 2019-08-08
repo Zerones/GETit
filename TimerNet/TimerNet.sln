@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimerNet", "TimerNet\TimerNet.csproj", "{94B02D26-F0F7-46A0-9C5D-6D0C5F4163F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94B02D26-F0F7-46A0-9C5D-6D0C5F4163F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94B02D26-F0F7-46A0-9C5D-6D0C5F4163F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94B02D26-F0F7-46A0-9C5D-6D0C5F4163F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94B02D26-F0F7-46A0-9C5D-6D0C5F4163F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D1E29DF3-13D2-4E06-9266-40C0B66BE30E}
+	EndGlobalSection
+EndGlobal
