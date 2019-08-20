@@ -1,7 +1,10 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Media;
 using System.Net;
 using System.Text;
 using System.Threading;
@@ -16,10 +19,20 @@ namespace Klokke
             Alert();
         }
 
+        public static void SoundAlarm()
+        {
+            var player = new SoundPlayer();
+            var rootLocation = typeof(Program).Assembly.Location;
+            var fullPathToSound = rootLocation.Replace("Klokke.exe", @"music\alarm.wav");
+            player.SoundLocation = fullPathToSound;
+            player.LoadAsync();
+            player.Play();
+        }
+
         public static void Alert()
         {
             var list = new List<Alert>();
-            while (true) //Stage 1 setting alarms
+            while (true) 
             {
                 Console.Clear();
                 Console.WriteLine("Alarm list:");
@@ -37,44 +50,31 @@ namespace Klokke
 
         public static void Clock(List<Alert> list)
         {
-            var alertList = AlarmingList(list);
-            var expiredAlerts = new List<string>();
+            var expiredAlerts = new List<Alert>();
             while (true)
             {
                 Console.Clear();
                 Console.WriteLine(Distillation());
-                var alert = CheckAlertTime(alertList);
-                if(!string.IsNullOrEmpty(alert)) expiredAlerts.Add(alert);
+                var alert = CheckAlertTime(list);
+                if(alert != null) expiredAlerts.Add(alert);
                 Console.WriteLine("Expired Alerts:");
-                foreach (var exAlert in expiredAlerts) Console.WriteLine(exAlert);
-                Thread.Sleep(999);
-                Console.BackgroundColor = ConsoleColor.Black;
+                foreach (var exAlert in expiredAlerts) Console.WriteLine("<------" + exAlert.AlarmMessage + "------>");
+                Thread.Sleep(900);
             }
         }
 
-        public static string CheckAlertTime(List<string> list)
+        public static Alert CheckAlertTime(List<Alert> list)
         {
             var currentTime = Distillation();
             foreach (var alert in list)
             {
-                if (currentTime != alert) continue;
-                Console.WriteLine("Alarm:" + alert + " Has been triggered");
+                if (currentTime != alert.CombineTime()) continue;
+                Thread.Sleep(100);
+                SoundAlarm();
                 return alert;
             }
 
             return null;
-        }
-
-
-        public static List<string> AlarmingList(List<Alert> list)
-        {
-            var alertList = new List<string>();
-            foreach (var alert in list)
-            {
-                alertList.Add(alert.CombineTime());
-            }
-
-            return alertList;
         }
 
         public static string[] Input()
