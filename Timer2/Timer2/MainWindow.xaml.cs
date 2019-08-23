@@ -11,29 +11,30 @@ namespace Timer2
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<Alarm> AlarmList { set; get; }
+        public List<Alarm<MainWindow>> AlarmList { set; get; }
 
         public MainWindow()
         {
             InitializeComponent();
-            AlarmList = new List<Alarm>();
+            AlarmList = new List<Alarm<MainWindow>>();
+            TimerDisplay();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var alarmTime = AlarmInput.Text;
             var message = Messageboxx.Text;
-            var newAlarm = new Alarm(alarmTime, message, this);
+            var newAlarm = new Alarm<MainWindow>(alarmTime, message, this);
             AlarmList.Add(newAlarm);
             UpdateGridList();
         }
 
-        private void UpdateGridList()
+        public void UpdateGridList()
         {
             GuiListAlarm.Items.Clear();
             foreach (var alarm in AlarmList)
             {
-                GuiListAlarm.Items.Add(alarm.Time + " " + alarm.Message);
+                GuiListAlarm.Items.Add( "Alarm Set To: " + alarm.Time + " Alarm Message: " + alarm.Message + " Remaining Time: " + alarm.TimeRemaining + "(   WIP: Timer not quite synced up with system clock)");
             }
         }
 
@@ -41,9 +42,8 @@ namespace Timer2
         {
             foreach (var alarm in AlarmList)
             {
-                alarm.Load(this);
+                alarm.Load();
             }
-            TimerDisplay();
             DynamicTimer.Text = Controller.Time();
             Screen1.IsEnabled = false;
             Screen2.IsEnabled = true;
@@ -61,7 +61,12 @@ namespace Timer2
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
             var time = Controller.Time();
+            foreach (var alarm in AlarmList)
+            {
+                alarm.ClockHacking();
+            }
             DynamicTimer.Text = time;
+            UpdateGridList();
             CommandManager.InvalidateRequerySuggested();
         }
 

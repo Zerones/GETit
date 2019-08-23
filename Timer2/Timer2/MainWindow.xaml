@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="Clock" Height="450" Width="800">
     <Grid x:Name="MainScreen" IsEnabled="True" Visibility="Visible">
-        <Grid x:Name="Screen1" IsEnabled="True" Visibility="Visible">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="365*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="Screen1" IsEnabled="True" Visibility="Visible" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="512*"/>
                 <ColumnDefinition Width="93*"/>
@@ -20,8 +24,8 @@
             <TextBlock x:Name="AlarmListTitle" HorizontalAlignment="Left" Margin="10,63,0,0" TextWrapping="Wrap" Text="Alarms:" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" TextDecorations="Underline" Width="373"/>
             <TextBox x:Name="Messageboxx" HorizontalAlignment="Left" Height="29" Margin="26.454,24,0,0" TextWrapping="Wrap" Text="     &lt;Message&gt;" VerticalAlignment="Top" Width="151" Grid.ColumnSpan="2" Grid.Column="1" FontSize="18" Foreground="#FF898989" MouseEnter="Messageboxx_MouseEnter" MouseLeave="Messageboxx_MouseLeave"/>
         </Grid>
-        <ListBox x:Name="GuiListAlarm" HorizontalAlignment="Left" Height="293" Margin="10,116,0,0" VerticalAlignment="Top" Width="772"/>
-        <Grid x:Name="Screen2" IsEnabled="False" Visibility="Hidden">
+        <ListBox x:Name="GuiListAlarm" HorizontalAlignment="Left" Height="293" Margin="10,116,0,0" VerticalAlignment="Top" Width="772" Grid.ColumnSpan="2"/>
+        <Grid x:Name="Screen2" IsEnabled="False" Visibility="Hidden" Grid.ColumnSpan="2">
             <TextBlock x:Name="StaticTimer" HorizontalAlignment="Left" Margin="113,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="74" Width="257" FontFamily="Sitka Small" FontSize="72" RenderTransformOrigin="1.371,-0.223" Text="Timer: "/>
             <TextBlock x:Name="DynamicTimer" HorizontalAlignment="Left" Margin="405,-9,0,0" TextWrapping="Wrap" Text="00:00:00" VerticalAlignment="Top" FontSize="72"/>
             <TextBlock x:Name="StaticUpcomingAlarms" HorizontalAlignment="Left" Margin="10,79,0,0" TextWrapping="Wrap" Text="Upcoming alarms:" VerticalAlignment="Top" FontSize="24" TextDecorations="Underline"/>
